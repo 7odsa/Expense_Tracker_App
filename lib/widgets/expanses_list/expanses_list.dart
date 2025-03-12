@@ -15,10 +15,13 @@ class ExpansesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(8),
       itemCount: expenses.length,
       itemBuilder:
           (ctx, index) => Dismissible(
+            background: Container(
+              margin: Theme.of(context).cardTheme.margin,
+              color: Theme.of(context).colorScheme.error,
+            ),
             key: ValueKey(expenses[index]),
             child: ExpanseItem(expense: expenses[index]),
             onDismissed: (direction) {

@@ -4,18 +4,53 @@ import 'package:flutter/material.dart';
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 8, 238, 0),
 );
+var kDarkColorScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
+  seedColor: Color.fromARGB(255, 3, 85, 0),
+);
+
 void main() {
   runApp(
     MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColorScheme,
+        dropdownMenuTheme: DropdownMenuThemeData().copyWith(
+          textStyle: TextStyle(color: kColorScheme.primaryContainer),
+        ),
+        cardTheme: CardTheme().copyWith(
+          color: kDarkColorScheme.secondaryContainer,
+          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        ),
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kDarkColorScheme.onPrimaryContainer,
+          foregroundColor: kDarkColorScheme.primaryContainer,
+        ),
+        iconTheme: const IconThemeData().copyWith(
+          // color:
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kDarkColorScheme.primaryContainer,
+            foregroundColor: kDarkColorScheme.onPrimaryContainer,
+          ),
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
+            color: kDarkColorScheme.onSecondaryContainer,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       theme: ThemeData().copyWith(
+        colorScheme: kColorScheme,
         dropdownMenuTheme: DropdownMenuThemeData().copyWith(
           textStyle: TextStyle(color: kColorScheme.primaryContainer),
         ),
         cardTheme: CardTheme().copyWith(
           color: kColorScheme.secondaryContainer,
-          margin: EdgeInsets.symmetric(vertical: 8),
+          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         ),
-        colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
@@ -28,10 +63,15 @@ void main() {
             backgroundColor: kColorScheme.secondaryContainer,
           ),
         ),
-        textTheme: TextTheme().copyWith(
-          titleLarge: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
+            color: kColorScheme.onSecondaryContainer,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
+      // themeMode: ThemeMode.system,
       home: Expenses(),
     ),
   );
