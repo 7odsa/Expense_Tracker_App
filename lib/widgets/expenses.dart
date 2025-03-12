@@ -1,3 +1,4 @@
+import 'package:expense_tracker_app/widgets/chart/chart.dart';
 import 'package:expense_tracker_app/widgets/new_expense.dart';
 import 'package:expense_tracker_app/widgets/expanses_list/expanses_list.dart';
 import 'package:expense_tracker_app/models/expense.dart';
@@ -68,7 +69,7 @@ class _ExpensesState extends State<Expenses> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
 
         children: [
-          Text("the chart", textAlign: TextAlign.center),
+          Chart(expenses: _expensesList),
           Expanded(
             child:
                 (_expensesList.isEmpty)
