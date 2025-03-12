@@ -14,10 +14,7 @@ class ExpanseItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              expense.title,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
+            Text(expense.title, style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 4),
             Row(
               children: [

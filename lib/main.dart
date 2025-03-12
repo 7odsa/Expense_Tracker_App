@@ -28,7 +28,9 @@ void main() {
             backgroundColor: kColorScheme.secondaryContainer,
           ),
         ),
-        textTheme: TextTheme().copyWith(),
+        textTheme: TextTheme().copyWith(
+          titleLarge: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        ),
       ),
       home: Expenses(),
     ),
