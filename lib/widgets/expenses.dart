@@ -65,21 +65,25 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
 
-        children: [
-          Chart(expenses: _expensesList),
-          Expanded(
-            child:
-                (_expensesList.isEmpty)
-                    ? _showNodata()
-                    : ExpansesList(
-                      onRemoveExpense: _removeExpense,
-                      expenses: _expensesList,
-                    ),
-          ),
-        ],
+          children: [
+            Chart(expenses: _expensesList),
+            SizedBox(height: 16),
+            Expanded(
+              child:
+                  (_expensesList.isEmpty)
+                      ? _showNodata()
+                      : ExpansesList(
+                        onRemoveExpense: _removeExpense,
+                        expenses: _expensesList,
+                      ),
+            ),
+          ],
+        ),
       ),
     );
   }
