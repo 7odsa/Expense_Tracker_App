@@ -53,6 +53,47 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
+  bool get isPortriatMode =>
+      MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
+  Widget getBodyWidgetBasedOnTheOriantationMode() {
+    return isPortriatMode
+        ? Column(
+          children: [
+            Chart(expenses: _expensesList),
+
+            SizedBox(height: 16),
+            Expanded(
+              child:
+                  (_expensesList.isEmpty)
+                      ? _showNodata()
+                      : ExpansesList(
+                        onRemoveExpense: _removeExpense,
+                        expenses: _expensesList,
+                      ),
+            ),
+          ],
+        )
+        : Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 3, child: Chart(expenses: _expensesList)),
+
+            SizedBox(width: 8),
+            Expanded(
+              flex: 5,
+              child:
+                  (_expensesList.isEmpty)
+                      ? _showNodata()
+                      : ExpansesList(
+                        onRemoveExpense: _removeExpense,
+                        expenses: _expensesList,
+                      ),
+            ),
+          ],
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,23 +108,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-
-          children: [
-            Chart(expenses: _expensesList),
-            SizedBox(height: 16),
-            Expanded(
-              child:
-                  (_expensesList.isEmpty)
-                      ? _showNodata()
-                      : ExpansesList(
-                        onRemoveExpense: _removeExpense,
-                        expenses: _expensesList,
-                      ),
-            ),
-          ],
-        ),
+        child: getBodyWidgetBasedOnTheOriantationMode(),
       ),
     );
   }

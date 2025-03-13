@@ -11,73 +11,71 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((
-    fn,
-  ) {
-    runApp(
-      MaterialApp(
-        darkTheme: ThemeData.dark().copyWith(
-          colorScheme: kDarkColorScheme,
-          dropdownMenuTheme: DropdownMenuThemeData().copyWith(
-            textStyle: TextStyle(color: kColorScheme.primaryContainer),
-          ),
-          cardTheme: CardTheme().copyWith(
-            color: kDarkColorScheme.secondaryContainer,
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          ),
-          appBarTheme: const AppBarTheme().copyWith(
-            backgroundColor: kDarkColorScheme.onPrimaryContainer,
-            foregroundColor: kDarkColorScheme.primaryContainer,
-          ),
-          iconTheme: const IconThemeData().copyWith(
-            // color:
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: kDarkColorScheme.primaryContainer,
-              foregroundColor: kDarkColorScheme.onPrimaryContainer,
-            ),
-          ),
-          textTheme: ThemeData().textTheme.copyWith(
-            titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
-              color: kDarkColorScheme.onSecondaryContainer,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((
+  //   fn,
+  // ) {
+  runApp(
+    MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColorScheme,
+        dropdownMenuTheme: DropdownMenuThemeData().copyWith(
+          textStyle: TextStyle(color: kColorScheme.primaryContainer),
+        ),
+        cardTheme: CardTheme().copyWith(
+          color: kDarkColorScheme.secondaryContainer,
+          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        ),
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kDarkColorScheme.onPrimaryContainer,
+          foregroundColor: kDarkColorScheme.primaryContainer,
+        ),
+        iconTheme: const IconThemeData().copyWith(
+          // color:
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kDarkColorScheme.primaryContainer,
+            foregroundColor: kDarkColorScheme.onPrimaryContainer,
           ),
         ),
-        theme: ThemeData().copyWith(
-          colorScheme: kColorScheme,
-          dropdownMenuTheme: DropdownMenuThemeData().copyWith(
-            textStyle: TextStyle(color: kColorScheme.primaryContainer),
-          ),
-          cardTheme: CardTheme().copyWith(
-            color: kColorScheme.secondaryContainer,
-          ),
-          appBarTheme: const AppBarTheme().copyWith(
-            backgroundColor: kColorScheme.onPrimaryContainer,
-            foregroundColor: kColorScheme.primaryContainer,
-          ),
-          iconTheme: const IconThemeData().copyWith(
-            // color:
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: kColorScheme.secondaryContainer,
-            ),
-          ),
-          textTheme: ThemeData().textTheme.copyWith(
-            titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
-              color: kColorScheme.onSecondaryContainer,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
+            color: kDarkColorScheme.onSecondaryContainer,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        themeMode: ThemeMode.system,
-        home: Expenses(),
       ),
-    );
-  });
+      theme: ThemeData().copyWith(
+        colorScheme: kColorScheme,
+        dropdownMenuTheme: DropdownMenuThemeData().copyWith(
+          textStyle: TextStyle(color: kColorScheme.primaryContainer),
+        ),
+        cardTheme: CardTheme().copyWith(color: kColorScheme.secondaryContainer),
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kColorScheme.onPrimaryContainer,
+          foregroundColor: kColorScheme.primaryContainer,
+        ),
+        iconTheme: const IconThemeData().copyWith(
+          // color:
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kColorScheme.secondaryContainer,
+          ),
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: ThemeData().textTheme.titleLarge?.copyWith(
+            color: kColorScheme.onSecondaryContainer,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      themeMode: ThemeMode.system,
+      home: Expenses(),
+    ),
+  );
+  // });
 }
